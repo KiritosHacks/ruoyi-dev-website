@@ -61,6 +61,12 @@
             <artifactId>ruoyi-generator</artifactId>
         </dependency>
 
+<!--        视频播放-->
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>dragonScale-video</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

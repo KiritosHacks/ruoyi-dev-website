@@ -178,6 +178,12 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>dragonScale-video</artifactId>
+                <version>3.8.5</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -188,6 +194,7 @@
         <module>ruoyi-quartz</module>
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
+        <module>dragonScale-video</module>
     </modules>
     <packaging>pom</packaging>
 

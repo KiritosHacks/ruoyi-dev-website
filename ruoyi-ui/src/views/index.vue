@@ -14,11 +14,15 @@
 <script>
 import Navbar from "../components/stage-components/Navbar.vue";
 import router from "../router";
+
+
 export default {
   components: { Navbar },
+  
+ 
   action() {
     alert(`Hello`);
-    router.push("/index");
+    router.push("/lession");
   },
 };
 </script>

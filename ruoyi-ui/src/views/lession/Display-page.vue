@@ -1,8 +1,7 @@
 <template>
   <el-row>
-  <el-col :span="8" v-for="(o, index) in 20" :key="o" :offset="0">
+  <el-col :span="8" v-for="(o, index) in 10" :key="o" :offset="0">
     <el-card :body-style="{ padding: '3px' } " shadow="hover" style="margin: 10px">
-      <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image">
       <div style="padding: 30px;">
         <span>好吃的汉堡</span>
         <div class="bottom clearfix">
@@ -11,17 +10,33 @@
         </div>  
       </div>
     </el-card>
+    
   </el-col>
+  <VideoPlayer ref="dplayer" :dplayerData="dplayerData"></VideoPlayer>
 </el-row>
 </template>
 
 <script>
+import VideoPlayer from '@/components/stage-components/video-player.vue'
 export default {
+  components:{
+    VideoPlayer
+  },
   data() {
     return {
-      currentDate: new Date()
+      currentDate: new Date(),
+      dplayerData: {
+				style:
+					'width:100%;height:672px;position: absolute;bottom: 0;right: 0;',
+			},
+			info: { video: '', pic: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png' },
     };
-  }
+  },
+  methods: {
+		switchVideo() {
+			this.$refs.dplayer.switchVideo(this.info)
+		},
+	},
     
 }
 </script>
