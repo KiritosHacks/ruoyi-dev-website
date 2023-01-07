@@ -22,6 +22,7 @@ import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 import variables from '@/assets/styles/variables.scss'
 
+//页面布局
 export default {
   name: 'Layout',
   components: {

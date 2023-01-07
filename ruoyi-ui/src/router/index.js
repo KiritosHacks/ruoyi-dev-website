@@ -30,6 +30,32 @@ import Layout from '@/layout'
 
 // 公共路由
 export const constantRoutes = [
+
+
+
+
+//前台 首页
+  {
+    path:"/",
+    component:()=> import('@/views/index'),
+    children:[
+      // 首页
+      {
+        path: 'index',
+        name: 'Index',
+        component: () => import('@/views/admin/index'),
+      },
+      //课程展示页面
+      {
+        path:"/lession",
+        name: 'Lession',
+        component:()=>import('@/views/lession/Display-page'),
+      
+      },
+    ]
+
+  },
+
   {
     path: '/redirect',
     component: Layout,
@@ -62,14 +88,14 @@ export const constantRoutes = [
     hidden: true
   },
   {
-    path: '',
+    path: '/admin',
     component: Layout,
     redirect: 'index',
     children: [
       {
         path: 'index',
-        component: () => import('@/views/index'),
-        name: 'Index',
+        component: () => import('@/views/admin/index'),
+        name: 'admin-Index',
         meta: { title: '首页', icon: 'dashboard', affix: true }
       }
     ]
@@ -89,6 +115,7 @@ export const constantRoutes = [
     ]
   }
 ]
+
 
 // 动态路由，基于用户权限动态去加载
 export const dynamicRoutes = [
