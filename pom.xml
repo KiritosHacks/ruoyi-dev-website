@@ -177,13 +177,18 @@
                 <artifactId>ruoyi-common</artifactId>
                 <version>${ruoyi.version}</version>
             </dependency>
-
+            <!--视频播放-->
             <dependency>
                 <groupId>com.ruoyi</groupId>
                 <artifactId>dragonScale-video</artifactId>
                 <version>3.8.5</version>
             </dependency>
-
+<!--            oos服务-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>dragonScale-oos</artifactId>
+                <version>3.8.5</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -195,6 +200,7 @@
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
         <module>dragonScale-video</module>
+        <module>dragonScale-oos</module>
     </modules>
     <packaging>pom</packaging>
 

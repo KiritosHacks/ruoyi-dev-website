@@ -4,6 +4,7 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.ruoyi.common.annotation.Anonymous;
+import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.R;
 import com.ruoyi.common.utils.StringUtils;
@@ -21,7 +22,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/video")
-public class VideoController {
+public class VideoController extends BaseController {
 
     private final NonStaticResourceHttpRequestHandler nonStaticResourceHttpRequestHandler;
 
@@ -29,7 +30,7 @@ public class VideoController {
         this.nonStaticResourceHttpRequestHandler = nonStaticResourceHttpRequestHandler;
     }
 
-
+    @Deprecated
     @Anonymous
     @GetMapping("/getVideo")
     public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -37,24 +38,23 @@ public class VideoController {
         //假如我把视频1.mp4放在了static下的video文件夹里面
         //sourcePath 是获取resources文件夹的绝对地址
         //realPath 即是视频所在的磁盘地址
-        String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/DPlayer.mp4").getPath().substring(1);
+        String sourcePath = ClassUtils.getDefaultClassLoader().getResource("static/Dplayer.mp4").getPath().substring(1);
 
-        String realPath = sourcePath+"static/DPlayer.mp4";
-
+//        String realPath = sourcePath+"static/DPlayer.mp4";
+        logger.info("视频路径为:"+sourcePath);
 
         Path filePath = Paths.get(sourcePath);
         if (Files.exists(filePath)) {
+            //获取文件类型
             String mimeType = Files.probeContentType(filePath);
             if (!StringUtils.isEmpty(mimeType)) {
                 response.setContentType(mimeType);
             }
             request.setAttribute(NonStaticResourceHttpRequestHandler.ATTR_FILE, filePath);
             nonStaticResourceHttpRequestHandler.handleRequest(request, response);
-            System.out.println("success");
         } else {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-            System.out.println("fail");
         }
     }
 
@@ -76,7 +76,8 @@ public class VideoController {
             put("code", 0);
             put("data", list);
         }};
-        System.out.println(JSONObject.toJSONString(map));
         return map;
     }
+
+
 }

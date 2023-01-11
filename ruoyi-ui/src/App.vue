@@ -1,13 +1,15 @@
 <template>
   <div id="app">
+    
     <router-view></router-view>
     <theme-picker />
+
   </div>
 </template>
 
 <script>
 import ThemePicker from "@/components/ThemePicker";
-
+// <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"/>
 export default {
   name: "App",
   components: { ThemePicker },

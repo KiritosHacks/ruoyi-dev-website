@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    alicloud:
+      access-key: LTAI5t7JXWfqxbon2igYdgbv
+      secret-key: v1vIqJEfiVUAfJjxN4TvcmqHwaKcYI
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+        bucket: test-video-sl

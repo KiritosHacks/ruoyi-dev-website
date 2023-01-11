@@ -33,7 +33,7 @@ export default {
     };
   },
   methods: {
-		switchVideo() {
+		switchVideo() { 
 			this.$refs.dplayer.switchVideo(this.info)
 		},
 	},
