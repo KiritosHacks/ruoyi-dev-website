@@ -1,23 +1,10 @@
 <template>
-  <el-row>
-  <el-col :span="8" v-for="(o, index) in 10" :key="o" :offset="0">
-    <el-card :body-style="{ padding: '3px' } " shadow="hover" style="margin: 10px">
-      <div style="padding: 30px;">
-        <span>好吃的汉堡</span>
-        <div class="bottom clearfix">
-          <time class="time">{{ currentDate }}</time>
-          <el-button type="text" class="button">操作按钮</el-button>
-        </div>  
-      </div>
-    </el-card>
-    
-  </el-col>
   <VideoPlayer ref="dplayer" :dplayerData="dplayerData"></VideoPlayer>
-</el-row>
 </template>
 
 <script>
-import VideoPlayer from '@/components/stage-components/video-player.vue'
+import VideoPlayer from '@/components/stage-components/video-player.vue';
+import {getVideoUrl} from '@/api/video/video'
 export default {
   components:{
     VideoPlayer
@@ -30,13 +17,26 @@ export default {
 					'width:100%;height:672px;position: absolute;bottom: 0;right: 0;',
 			},
 			info: { video: '', pic: 'https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png' },
+      query:{
+        videoId: "id:1",
+        definition: "480",
+      }
     };
   },
   methods: {
 		switchVideo() { 
 			this.$refs.dplayer.switchVideo(this.info)
 		},
+    getUrl(){
+      getVideoUrl(this.query).then(response=>{
+      this.info.video = response.data;
+      this.switchVideo();
+    });
+    }
 	},
+  mounted(){
+    this.getUrl();
+  }
     
 }
 </script>

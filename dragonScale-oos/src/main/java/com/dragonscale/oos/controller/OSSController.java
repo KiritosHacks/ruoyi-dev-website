@@ -24,16 +24,14 @@ import java.util.Map;
 @RequestMapping("/OSS")
 public class OSSController extends BaseController {
 
-    @Resource
-    OSS ossClient;
     @Value("${spring.cloud.alicloud.oss.endpoint}")
     private  String ENDPOINT;
     @Value("${spring.cloud.alicloud.oss.bucket}")
     private  String BUCKET;
 
-    @Value("${spring.cloud.alicloud.oss.aceess-key}")
+    @Value("${spring.cloud.alicloud.access-key}")
     private  String ACCESS_KEY_ID;
-    @Value("${spring.cloud.alicloud.oss.secret-key}")
+    @Value("${spring.cloud.alicloud.secret-key}")
     private  String ACCESS_KEY_SECRET;
 
 

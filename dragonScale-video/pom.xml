@@ -18,10 +18,10 @@
 
     <dependencies>
 
-        <!-- 通用工具-->
+<!--        oss 服务-->
         <dependency>
             <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-common</artifactId>
+            <artifactId>dragonScale-oos</artifactId>
         </dependency>
 
     </dependencies>

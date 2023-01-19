@@ -30,21 +30,17 @@ import Layout from '@/layout'
 
 // 公共路由
 export const constantRoutes = [
-
-
-
-
 //前台 首页
   {
     path:"/",
     component:()=> import('@/views/index'),
     children:[
       // 首页
-      {
-        path: 'index',
-        name: 'Index',
-        component: () => import('@/views/admin/index'),
-      },
+      // {
+      //   path: '/index',
+      //   name: 'Index',
+      //   component: () => import('@/views/index/index'),
+      // },
       //课程展示页面
       {
         path:"/lession",
@@ -88,7 +84,7 @@ export const constantRoutes = [
     hidden: true
   },
   {
-    path: '/admin',
+    path: '/system',
     component: Layout,
     redirect: 'index',
     children: [

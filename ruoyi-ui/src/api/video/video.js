@@ -1,9 +1,10 @@
 import request from '@/utils/request'
 
 
-export function getVideo(){
-    return request({
-        url: '/video/getVideo',
-        method: 'get'
-      })
+export function getVideoUrl(query){
+  return request({
+    url: '/video/getVideoUrl',
+    method: 'get',
+    params: query,
+  })
 }

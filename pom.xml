@@ -9,8 +9,6 @@
     <version>3.8.5</version>
 
     <name>ruoyi</name>
-    <url>http://www.ruoyi.vip</url>
-    <description>若依管理系统</description>
     
     <properties>
         <ruoyi.version>3.8.5</ruoyi.version>
@@ -189,6 +187,13 @@
                 <artifactId>dragonScale-oos</artifactId>
                 <version>3.8.5</version>
             </dependency>
+<!--            业务模块-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>dragonScale-business</artifactId>
+                <version>3.8.5</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -201,6 +206,7 @@
         <module>ruoyi-common</module>
         <module>dragonScale-video</module>
         <module>dragonScale-oos</module>
+        <module>dragonScale-business</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -9,9 +9,12 @@ import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.domain.R;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.dragonscale.video.resourceHandler.NonStaticResourceHttpRequestHandler;
+import com.ruoyi.dragonscale.video.service.M3U8Service;
+import org.springframework.stereotype.Service;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
@@ -24,6 +27,8 @@ import java.util.*;
 @RequestMapping("/video")
 public class VideoController extends BaseController {
 
+    @Resource
+    M3U8Service m3U8Service;
     private final NonStaticResourceHttpRequestHandler nonStaticResourceHttpRequestHandler;
 
     public VideoController(NonStaticResourceHttpRequestHandler nonStaticResourceHttpRequestHandler) {
@@ -77,6 +82,16 @@ public class VideoController extends BaseController {
             put("data", list);
         }};
         return map;
+    }
+
+
+    @Anonymous
+    @GetMapping("/getVideoUrl")
+    public Object getVideoUrl(@RequestParam String videoId,@RequestParam String definition){        //@RequestParam String userId
+        //ToDo:权限认证 根据userId和videoId判断是否能够访问此video
+        logger.info("视频id："+videoId+"/n用户id：");
+        String url = "https://"+m3U8Service.getM3U8(videoId, definition);
+        return AjaxResult.success("获取视频链接成功！",url);
     }
 
 

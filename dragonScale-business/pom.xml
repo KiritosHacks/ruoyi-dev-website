@@ -9,7 +9,7 @@
         <version>3.8.5</version>
     </parent>
 
-    <artifactId>dragonScale-oos</artifactId>
+    <artifactId>dragonScale-business</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -18,20 +18,10 @@
     </properties>
 
     <dependencies>
-        <!-- 通用工具-->
         <dependency>
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-common</artifactId>
         </dependency>
-
-<!--        ali-oos-->
-        <!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
-        <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.16.0</version>
-        </dependency>
-
     </dependencies>
 
 </project>

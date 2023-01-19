@@ -67,6 +67,11 @@
             <artifactId>dragonScale-video</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>dragonScale-business</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
